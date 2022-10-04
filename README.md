@@ -2,7 +2,7 @@
 ![Logo](https://images.squarespace-cdn.com/content/v1/60056c48dfad4a3649200fc0/1613294634908-3HTA3TR74HYYSNEIZSIJ/UniCT-Logo.jpg?format=1000w)
 
 
-# Algoritmi (A.A. 2022-23 Cantone - Faro - Santamaria)
+# Algoritmi (A.A. 2022-23 Cantone D. - Faro S. - Santamaria D.F.)
 
 Repository creata a scopo didattico per essere utilizzata come backup dei file creati a lezione.
 
