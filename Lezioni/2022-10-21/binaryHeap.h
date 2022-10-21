@@ -59,5 +59,97 @@ private:
             index = m;
         }
     }
+
+    void moveUpKey(int i)
+    {
+        while (i > 1 && compare(queue[i], queue[parent(i)]) > 0)
+        {
+            swap(i, parent(i));
+            i = parent(i);
+        }
+    }
+
+public:
+    BinaryHeap(int size)
+    {
+        queue = new T *[size + 1];
+        queueLength = size + 1;
+        heapsize = 0;
+    }
+
+    BinaryHeap(T **V, int size)
+    {
+        queue = V;
+        queueLength = size;
+        heapsize = size - 1;
+    }
+
+    void buildHeap()
+    {
+        for (int i = heapsize / 2; i >= 0; i--)
+        {
+            heapify(i);
+        }
+    }
+
+    T *extract()
+    {
+        if (heapsize == 0)
+        {
+            return NULL;
+        }
+
+        swap(1, heapsize);
+        heapsize--;
+        heapify(1);
+        return queue[heapsize + 1];
+    }
+
+    T **getPriorityQueue()
+    {
+        return queue;
+    }
+
+    void modify(int i, T k)
+    {
+        if (i < 1 || i > heapsize)
+        {
+            return;
+        }
+
+        if (compare(queue[i], &k) >= 0)
+        {
+            return;
+        }
+
+        delete queue[i];
+        queue[i] = new T(k);
+
+        moveUpKey(i);
+        return;
+    }
+
+    BinaryHeap<T> *enqueue(T x)
+    {
+        if (heapsize == queueLength + 1)
+        {
+            return this;
+        }
+
+        heapsize++;
+        queue[heapsize] = new T(x);
+        moveUpKey(i);
+        return this;
+    }
+
+    void sort()
+    {
+        int count = heapsize;
+        for (int i = 0; i < count; i++)
+        {
+            extract();
+        }
+        heapsize = count;
+    }
 };
 #endif
