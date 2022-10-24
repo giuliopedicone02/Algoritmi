@@ -2,6 +2,8 @@
 #define BINARYHEAP_H
 
 #include "priorityQueue.h"
+#include <iostream>
+using namespace std;
 template <typename T>
 class BinaryHeap : public PriorityQueue<T>
 {
@@ -27,7 +29,7 @@ private:
 
     void swap(int i, int j)
     {
-        T tmp = queue[i];
+        T *tmp = queue[i];
         queue[i] = queue[j];
         queue[j] = tmp;
     }
@@ -70,6 +72,14 @@ private:
     }
 
 public:
+    virtual double compare(T *a, T *b) = 0;
+    virtual void printKey(int i) const = 0;
+
+    int size() const
+    {
+        return heapsize;
+    }
+
     BinaryHeap(int size)
     {
         queue = new T *[size + 1];
@@ -96,7 +106,7 @@ public:
     {
         if (heapsize == 0)
         {
-            return NULL;
+            return nullptr;
         }
 
         swap(1, heapsize);
@@ -105,7 +115,7 @@ public:
         return queue[heapsize + 1];
     }
 
-    T **getPriorityQueue()
+    T **getPriorityQueue() const
     {
         return queue;
     }
@@ -131,13 +141,14 @@ public:
 
     BinaryHeap<T> *enqueue(T x)
     {
-        if (heapsize == queueLength + 1)
+        if (heapsize == queueLength - 1)
         {
             return this;
         }
 
-        heapsize++;
+        heapsize += 1;
         queue[heapsize] = new T(x);
+        int i = heapsize;
         moveUpKey(i);
         return this;
     }
@@ -150,6 +161,13 @@ public:
             extract();
         }
         heapsize = count;
+    }
+
+    void print() const
+    {
+        for (int i = 1; i <= this->size(); i++)
+            printKey(i);
+        cout << endl;
     }
 };
 #endif
