@@ -6,6 +6,10 @@
 
 Repository creata a scopo didattico per essere utilizzata come backup dei file creati a lezione.
 
+* Cartella Lezioni: Comprende gli appunti presi durante le lezioni sugli argomenti del corso.
+* Cartella Esercizi: Comprende soluzioni personali degli esercizi presenti sul sito [Coding Contest](https://www.dmi.unict.it/faro/coding/index.html).
+Sono presenti file incompleti e parzialmente incorretti
+
 ## Authors
 
 - [@giuliopedicone02](https://www.github.com/giuliopedicone02)
