@@ -6,19 +6,24 @@ using namespace std;
 int main()
 {
     MaxHeap<int> *B = new MaxHeap<int>(100);
+
     B->enqueue(6)->enqueue(9)->enqueue(2)->enqueue(7)->enqueue(12);
+
     cout << "The queue is :" << endl;
     B->print();
+
     cout << "The max is: " << *(B->extractMax()) << endl;
     cout << "The queue after the extact is:" << endl;
     B->print();
-    cout << "The tree is:" << endl;
+
     cout << "Additional elements" << endl;
     B->enqueue(4)->enqueue(1)->enqueue(5);
     B->print();
+
     cout << "Increase key indexed 6 to 8" << endl;
     B->increaseKey(6, 8);
     B->print();
+
     cout << "Sorting" << endl;
     B->sort();
     B->print();
