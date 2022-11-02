@@ -1,0 +1,9 @@
+# Esercizi Coding Contest da ignorare
+/Esercizi/*
+
+# Esercizi Coding Contest svolti
+!/Esercizi/build-max-heap
+!/Esercizi/build-min-heap
+
+#Escludi tutti i file eseguibili
+*exe
