@@ -1,0 +1,32 @@
+Titolo
+Coda con priorità  MaxHeap
+
+Introduzione
+Una coda di priorità  è una struttura dati simile ad una coda, ma diversa da questa in quanto ogni elemento inserito all'interno della coda possiede una sua priorità . In una coda di priorità  viene sempre estratto per primo l'elemento avente priorità  più alta. Ciò impone che l'elemento con priorità  più alta si trovi in testa alla coda mentre quello con priorità  più bassa si trovi in coda.
+
+Specifiche
+Si implementi una coda con priorità  utilizzando la struttura dati MaxHeap Binario in cui la priorità  di ogni elemento sia definita dalla chiave dell'elemento stesso (chiavi maggiori identificano priorità  superiori). Si forniscano le operazioni di inserimento in coda (enqueue) e di estrazione dell'elemento con la priorità  più alta.
+Si fornisca in seguito il codice di un programma in grado di leggere da un file di input una sequenza di N operazioni di inserimento ed estrazione, le applichi ad una coda con priorità  inizialmente vuota, e stampi in un file di output la configurazione della coda successivamente all'applicazione delle N operazioni. Si chiede di fornire in output anche il numero di chiamate alla procedura Heapify effettuate sulla struttura dati.
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da 2+N elementi. Il primo elemento è una stringa che identifica il tipo di dato (H) che dovrà  essere contenuto all'interno della coda con priorità . Il secondo elemento è un valore intero N, il quale rappresenta il numero delle operazioni che dovranno essere eseguite nella struttura dati (enqueue ed extract). Seguono N elementi che rappresentano, nell'ordine dato, le operazioni che dovranno essere eseguite all'interno della coda con priorità . Un'operazione di inserimento (enqueue) di un elemento, "v" di tipo H è rappresentata dal carattere "e", seguito da due punti ":" e concatenato con il valore di "v" (ad esempio "e:235"). Un'operazione di cancellazione è invece rappresentata dalla stringa "extract".
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene M+1 elementi. Il primo elemento è un valore intero che rappresenta il numero di chiamate alla funzione Heapify effettuate durante l'applicazione delle N operazioni. Segue una lista di M valori, i quali rappresentano gli elementi contenuti nella coda con priorità  dopo l'esecuzione delle N operazioni. La stampa degli elementi dovrà  essere effettuata per livelli del'Heap, dal livello più alto (la radice) al livello più basso (le foglie). Per ogni livello, i nodi devono essere stampati procedendo da sinistra verso destra.
+
+Note
+N è un numero intero compreso tra 10 e 200.
+Il tipo H può essere uno dei seguenti tipi di dato: int, double, bool, char.
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+bool 10 e:1 extract e:0 extract e:1 e:0 e:0 extract e:1 e:1 
+char 10 e:d e:j e:a e:t extract extract e:r extract extract e:k 
+int 10 e:20 e:58 e:12 e:46 e:30 extract e:52 e:18 e:53 extract 
+
+output.txt
+1 1 1 0 0 
+6 k a 
+4 52 46 18 20 30 12 

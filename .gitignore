@@ -4,6 +4,8 @@
 # Esercizi Coding Contest svolti
 !/Esercizi/build-max-heap
 !/Esercizi/build-min-heap
+!/Esercizi/min-heap
+!/Esercizi/max-heap
 
-#Escludi tutti i file eseguibili
+# Escludi tutti i file eseguibili
 *exe
