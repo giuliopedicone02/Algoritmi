@@ -1,0 +1,32 @@
+Titolo
+Costruzione di un MinHeap attraverso operazioni di inserimento
+
+Introduzione
+Una coda di priorità  è una struttura dati simile ad una coda, ma diversa da questa in quanto ogni elemento inserito all'interno della coda possiede una sua priorità . In una coda di priorità  viene sempre estratto per primo l'elemento avente priorità  più alta. Ciò impone che l'elemento con priorità  più alta si trovi in testa alla coda mentre quello con priorità  più bassa si trovi in coda.
+
+Specifiche
+Si implementi una coda con priorità  utilizzando la struttura dati MaxHeap Binario in cui la priorità  di ogni elemento sia definita dalla chiave dell'elemento stesso (in un MinHeap le chiavi più piccole identificano priorità  superiori). Si fornisca inoltre l'operazioni di inserimento in coda (enqueue).
+Si fornisca in seguito il codice di un programma in grado di leggere da un file di input una sequenza di N valori, inserire tali valori all'interno della struttura dati, inizialmente vuota, tramite delle operazioni di enqueue, e stampare in un file di output la configurazione della coda successivamente all'applicazione degli N inserimenti.
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da 2+N elementi. Il primo elemento è una stringa che identifica il tipo di dato (H) che dovrà  essere contenuto all'interno della coda con priorità . Il secondo elemento è un valore intero N, il quale rappresenta il numero di elementi che dovranno essere inseriti all'interno nella struttura dati. Seguono N elementi che rappresentano, nell'ordine dato, i valori che dovranno essere inseriti.
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene N valori, i quali rappresentano gli elementi contenuti nella coda con priorità  dopo l'esecuzione delle N operazioni di inserimento. La stampa degli elementi dovrà  essere effettuata per livelli dell'Heap, dal livello più alto (la radice) al livello più basso (le foglie). Per ogni livello, i nodi devono essere stampati procedendo da sinistra verso destra.
+
+Note
+N è un numero intero compreso tra 10 e 200.
+Il tipo H può essere uno dei seguenti tipi di dato: int, double, bool, char.
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+bool 10 0 1 1 1 1 1 1 0 1 0 
+int 10 30 93 41 52 86 18 93 53 56 56 
+double 10 9.58 8.28 9.94 0.95 3.95 2.06 3.88 8.28 7.2 7.22 
+
+output.txt
+0 0 1 1 0 1 1 1 1 1 
+18 52 30 53 56 41 93 93 56 86 
+0.95 3.95 2.06 7.2 7.22 9.94 3.88 9.58 8.28 8.28

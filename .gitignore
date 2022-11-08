@@ -6,6 +6,8 @@
 !/Esercizi/build-min-heap
 !/Esercizi/min-heap
 !/Esercizi/max-heap
+!/Esercizi/min-enqueue
+
 
 # Escludi tutti i file eseguibili
 *exe
