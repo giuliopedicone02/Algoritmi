@@ -1,0 +1,31 @@
+Titolo
+Ordinamento di un insieme tramite CountingSort
+
+Introduzione
+Il CountingSort è un algoritmo di ordinamento non basato su confronti che permette di ordinare un vettore di valori interi, sotto determinate condizioni, in un tempo lineare rispetto alla dimensione del vettore. Lo schema di funzionamento è di immediata semplicità . Noto a priori il range di variabilità  K del vettore di interi, si costruisce un vettore ausiliario C di tale lunghezza che sia in grado di fornire, per ogni posizione, l'informazione circa il numero di elementi minori o uguali presenti all'interno del vettore di input. Se il range di variabilità  è proporzionale al numero di elementi presenti nel vettore di input allora l'ordinamento può essere realizzato in tempo lineare.
+
+Specifiche
+Si implementi l'algoritmo di ordinamento Counting e si fornisca il codice di un programma in grado di leggere da un file di input una sequenza di N valori interi ed ordinare il vettore contenente gli elementi forniti in input tramite l'algoritmo proposto. Il programma dovrà  restituire in output anche la configurazione del vettore C subito dopo l'ordinamento del vettore di input.
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da N+1 elementi. Il primo elemento è un valore intero N, il quale rappresenta il numero di elementi contenuti nell'array di input. Seguono N valori che rappresentano, nell'ordine dato, gli elementi contenuti dell'array di input.
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene K+N elementi, dove K rappresenta il range di variabilità  degli elementi presenti nel vettore di input. I primi K elementi rappresentano la configurazione dell'array C (di dimensione K) al termine della fase di ordinamento. Segue una sequenza di N valori i quali rappresentano gli elementi del vettore di input successivamente all'ordinamento, ovvero disposti in ordine non decrescente.
+
+Note
+N è un numero intero compreso tra 10 e 2000.
+Gli elementi del vettore di input sono tutti valori interi compresi tra 0 e 1000.
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+10 12 9 11 15 13 15 15 8 7 15 
+11 92 97 94 96 96 95 96 97 93 92 93 
+12 35 33 35 37 36 33 39 34 38 33 34 33 
+
+output.txt
+0 1 2 3 3 4 5 6 6 7 8 9 11 12 13 15 15 15 15 
+0 2 4 5 6 9 92 92 93 93 94 95 96 96 96 97 97 
+0 4 6 8 9 10 11 33 33 33 33 34 34 35 35 36 37 38 39 
