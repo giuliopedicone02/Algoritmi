@@ -25,7 +25,7 @@ void countingSort(T *array, int size)
     int range = max - min + 1;
 
     T *tmp = new T[size];
-    T *freq = new T[range];
+    int *freq = new int[range];
 
     for (int i = 0; i < range; i++)
     {
