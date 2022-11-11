@@ -8,6 +8,7 @@
 !/Esercizi/max-heap
 !/Esercizi/min-enqueue
 !/Esercizi/counting-sort
+!/Esercizi/heapify
 
 # Escludi tutti i file eseguibili
 *exe

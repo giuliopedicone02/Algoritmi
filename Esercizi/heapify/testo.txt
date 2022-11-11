@@ -1,0 +1,32 @@
+Titolo
+Contare il numero di Heapify
+
+Introduzione
+Una coda di priorità  è una struttura dati simile ad una coda, ma diversa da questa in quanto ogni elemento inserito all'interno della coda possiede una sua priorità . In una coda di priorità  viene sempre estratto per primo l'elemento avente priorità  più alta. Ciò impone che l'elemento con priorità  più alta si trovi in testa alla coda mentre quello con priorità  più bassa si trovi in coda.
+
+Specifiche
+Si implementi una coda con priorità  utilizzando la struttura dati MaxHeap Binario in cui la priorità  di ogni elemento sia definita dalla chiave dell'elemento stesso (chiavi maggiori identificano priorità  superiori). Si fornisca il codice della procedura BuildMaxHeap in grado di costruire un MaxHeap a partire da un array non ordinato di elementi ed il codice della procedura di estrazione della chiave con priorità  più alta.
+Si fornisca in seguito il codice di un programma in grado di leggere da un file di input una sequenza di N elementi, costruire un MaxHeap attraverso la procedura BuildMaxHeap, e infine svuotare la struttura dati attraverso una sequenza di N estrazioni. Il programma dovrà  stampare in un file di output il numero di chiamate alla procedura Heapify richieste durante le operazioni di costruzione dell'Heap e di estrazione delle chiavi.
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da 2+N elementi. Il primo elemento è una stringa che identifica il tipo di dato (H) che dovrà  essere contenuto all'interno della coda con priorità . Il secondo elemento è un valore intero N, il quale rappresenta il numero di elementi contenuti nell'array di input. Seguono N valori che rappresentano, nell'ordine dato, gli elementi contenuti dell'array di input.
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene un solo elemento il quale rappresenta il numero di chiamate alla procedura Heapify richieste durante le operazioni di costruzione dell'Heap e di estrazione delle chiavi.
+
+Note
+N è un numero intero compreso tra 10 e 200.
+Il tipo H può essere uno dei seguenti tipi di dato: int, double, bool, char.
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+int 10 64 97 80 14 98 26 17 16 59 69 
+char 10 f j p o j b r p f e 
+bool 10 0 0 1 1 0 0 0 0 1 0 
+
+output.txt
+31 
+34 
+20 
