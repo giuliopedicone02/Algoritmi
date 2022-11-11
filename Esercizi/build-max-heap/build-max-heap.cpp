@@ -1,9 +1,78 @@
 #include <iostream>
 #include <fstream>
 #include <typeinfo>
+#include <cstring>
+#include <cmath>
+#include <sstream>
 
-#include "maxHeap.h"
 using namespace std;
+
+template <class H>
+class MaxHeap
+{
+private:
+    H *array;
+    int size;
+
+    int left(int i) { return i << 1; }
+    int right(int i) { return (i << 1) | 1; }
+    int parent(int i) { return i >> 1; }
+    stringstream s;
+
+    void swap(int i, int j)
+    {
+        H tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
+    }
+
+    void max_heapify(int i)
+    {
+        int l = left(i);
+        int r = right(i);
+        int max = i;
+        if (l < size && array[l] > array[max])
+            max = l;
+        if (r < size && array[r] > array[max])
+            max = r;
+        if (max != i)
+        {
+            swap(i, max);
+            max_heapify(max);
+        }
+    }
+
+public:
+    MaxHeap(H *arr, int len)
+    {
+        array = new H[len + 1];
+
+        for (int i = 1; i <= len; i++)
+        {
+            array[i] = arr[i - 1];
+        }
+
+        size = len + 1;
+
+        s.str("");
+    }
+
+    void build_heap()
+    {
+        for (int i = floor(size + 1 / 2); i >= 1; i--)
+        {
+            max_heapify(i);
+        }
+    }
+
+    string print()
+    {
+        for (int i = 1; i < size; i++)
+            s << array[i] << " ";
+        s << endl;
+        return s.str();
+    }
+};
 
 int main()
 {
@@ -17,10 +86,7 @@ int main()
     }
 
     string type = "";
-    int dim, i_val = 0;
-    double d_val = 0.0;
-    char c_val = '\0';
-    bool b_val = false;
+    int dim = 0;
 
     while (fileInput.good())
     {
@@ -28,54 +94,58 @@ int main()
 
         if (type == "int")
         {
-            MaxHeap<int> *int_heap = new MaxHeap<int>(dim);
+            int *arr = new int[dim];
 
             for (int i = 0; i < dim; i++)
             {
-                fileInput >> i_val;
-                int_heap->enqueue(i_val);
+                fileInput >> arr[i];
             }
 
-            fileOutput << int_heap->printString();
+            MaxHeap<int> *int_heap = new MaxHeap<int>(arr, dim);
+            int_heap->build_heap();
+            fileOutput << int_heap->print();
         }
 
         if (type == "double")
         {
-            MaxHeap<double> *double_heap = new MaxHeap<double>(dim);
+            double *arr = new double[dim];
 
             for (int i = 0; i < dim; i++)
             {
-                fileInput >> d_val;
-                double_heap->enqueue(d_val);
+                fileInput >> arr[i];
             }
 
-            fileOutput << double_heap->printString();
+            MaxHeap<double> *double_heap = new MaxHeap<double>(arr, dim);
+            double_heap->build_heap();
+            fileOutput << double_heap->print();
         }
 
         if (type == "char")
         {
-            MaxHeap<char> *char_heap = new MaxHeap<char>(dim);
+            char *arr = new char[dim];
 
             for (int i = 0; i < dim; i++)
             {
-                fileInput >> c_val;
-                char_heap->enqueue(c_val);
+                fileInput >> arr[i];
             }
 
-            fileOutput << char_heap->printString();
+            MaxHeap<char> *char_heap = new MaxHeap<char>(arr, dim);
+            char_heap->build_heap();
+            fileOutput << char_heap->print();
         }
 
         if (type == "bool")
         {
-            MaxHeap<bool> *bool_heap = new MaxHeap<bool>(dim);
+            bool *arr = new bool[dim];
 
             for (int i = 0; i < dim; i++)
             {
-                fileInput >> b_val;
-                bool_heap->enqueue(b_val);
+                fileInput >> arr[i];
             }
 
-            fileOutput << bool_heap->printString();
+            MaxHeap<bool> *bool_heap = new MaxHeap<bool>(arr, dim);
+            bool_heap->build_heap();
+            fileOutput << bool_heap->print();
         }
     }
 }

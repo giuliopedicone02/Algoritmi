@@ -1,9 +1,79 @@
 #include <iostream>
 #include <fstream>
 #include <typeinfo>
+#include <cstring>
+#include <cmath>
+#include <sstream>
 
-#include "minHeap.h"
 using namespace std;
+
+template <class H>
+class MinHeap
+{
+private:
+    H *array;
+    int size;
+
+    int left(int i) { return i << 1; }
+    int right(int i) { return (i << 1) | 1; }
+    int parent(int i) { return i >> 1; }
+    stringstream s;
+
+    void swap(int i, int j)
+    {
+        H tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
+    }
+
+    void min_heapify(int i)
+    {
+        int l = left(i);
+        int r = right(i);
+        int min = i;
+        if (l < size && array[l] < array[min])
+            min = l;
+        if (r < size && array[r] < array[min])
+            min = r;
+        if (min != i)
+        {
+            swap(i, min);
+            min_heapify(min);
+        }
+    }
+
+public:
+    MinHeap(H *arr, int len)
+    {
+        array = new H[len + 1];
+
+        for (int i = 1; i <= len; i++)
+        {
+            array[i] = arr[i - 1];
+        }
+
+        size = len + 1;
+
+        s.str("");
+    }
+
+    void build_heap()
+    {
+        for (int i = floor(size + 1 / 2); i >= 1; i--)
+        {
+            min_heapify(i);
+        }
+    }
+
+    string print()
+    {
+        for (int i = 1; i < size; i++)
+            if (array[i])
+                s << array[i] << " ";
+        s << endl;
+        return s.str();
+    }
+};
 
 int main()
 {
@@ -17,10 +87,7 @@ int main()
     }
 
     string type = "";
-    int dim, i_val = 0;
-    double d_val = 0.0;
-    char c_val = '\0';
-    bool b_val = false;
+    int dim = 0;
 
     while (fileInput.good())
     {
@@ -28,54 +95,58 @@ int main()
 
         if (type == "int")
         {
-            MinHeap<int> *int_heap = new MinHeap<int>(dim);
+            int *arr = new int[dim];
 
             for (int i = 0; i < dim; i++)
             {
-                fileInput >> i_val;
-                int_heap->enqueue(i_val);
+                fileInput >> arr[i];
             }
 
-            int_heap->print();
+            MinHeap<int> *int_heap = new MinHeap<int>(arr, dim);
+            int_heap->build_heap();
+            fileOutput << int_heap->print();
         }
 
         if (type == "double")
         {
-            MinHeap<double> *double_heap = new MinHeap<double>(dim);
+            double *arr = new double[dim];
 
             for (int i = 0; i < dim; i++)
             {
-                fileInput >> d_val;
-                double_heap->enqueue(d_val);
+                fileInput >> arr[i];
             }
 
-            double_heap->print();
+            MinHeap<double> *double_heap = new MinHeap<double>(arr, dim);
+            double_heap->build_heap();
+            fileOutput << double_heap->print();
         }
 
         if (type == "char")
         {
-            MinHeap<char> *char_heap = new MinHeap<char>(dim);
+            char *arr = new char[dim];
 
             for (int i = 0; i < dim; i++)
             {
-                fileInput >> c_val;
-                char_heap->enqueue(c_val);
+                fileInput >> arr[i];
             }
 
-            char_heap->print();
+            MinHeap<char> *char_heap = new MinHeap<char>(arr, dim);
+            char_heap->build_heap();
+            fileOutput << char_heap->print();
         }
 
         if (type == "bool")
         {
-            MinHeap<bool> *bool_heap = new MinHeap<bool>(dim);
+            bool *arr = new bool[dim];
 
             for (int i = 0; i < dim; i++)
             {
-                fileInput >> b_val;
-                bool_heap->enqueue(b_val);
+                fileInput >> arr[i];
             }
 
-            bool_heap->print();
+            MinHeap<bool> *bool_heap = new MinHeap<bool>(arr, dim);
+            bool_heap->build_heap();
+            fileOutput << bool_heap->print();
         }
     }
 }
