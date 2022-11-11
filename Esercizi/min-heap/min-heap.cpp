@@ -1,7 +1,91 @@
 #include <iostream>
 #include <fstream>
-#include "minHeap.h"
+#include <typeinfo>
+#include <cstring>
+#include <sstream>
+
 using namespace std;
+
+template <class H>
+class MinHeap
+{
+private:
+    H *array;
+    int size;
+    int heapsize;
+    int cont;
+    int left(int i) { return i << 1; }
+    int right(int i) { return (i << 1) | 1; }
+    int parent(int i) { return i >> 1; }
+    stringstream s;
+
+    void swap(int i, int j)
+    {
+        H tmp = array[i];
+        array[i] = array[j];
+        array[j] = tmp;
+    }
+
+    void min_heapify(int i)
+    {
+        int l = left(i);
+        int r = right(i);
+        int min = i;
+        if (l <= heapsize && array[l] < array[min])
+            min = l;
+        if (r <= heapsize && array[r] < array[min])
+            min = r;
+        if (min != i)
+        {
+            swap(i, min);
+            min_heapify(min);
+        }
+        if (heapsize >= 1)
+            cont++;
+    }
+
+public:
+    MinHeap(int len)
+    {
+        array = new H[len + 1];
+        size = len + 1;
+        heapsize = 0;
+        cont = 0;
+        s.str("");
+    }
+
+    void enqueue(H elem)
+    {
+        heapsize++;
+        array[heapsize] = elem;
+        int i = heapsize;
+        while (i > 1 && array[parent(i)] > array[i])
+        {
+            swap(parent(i), i);
+            i = parent(i);
+        }
+    }
+
+    void extract()
+    {
+        swap(1, heapsize);
+        heapsize--;
+        min_heapify(1);
+    }
+
+    int getHeapifyCount()
+    {
+        return cont;
+    }
+
+    string print()
+    {
+        for (int i = 1; i <= heapsize; i++)
+            s << array[i] << " ";
+        s << endl;
+        return s.str();
+    }
+};
 
 int main()
 {
@@ -45,8 +129,8 @@ int main()
                 }
             }
 
-            cout << int_heap->getHeapifyCount() << " ";
-            int_heap->print();
+            fileOutput << int_heap->getHeapifyCount() << " ";
+            fileOutput << int_heap->print();
         }
 
         if (type == "double")
@@ -69,8 +153,8 @@ int main()
                 }
             }
 
-            cout << double_heap->getHeapifyCount() << " ";
-            double_heap->print();
+            fileOutput << double_heap->getHeapifyCount() << " ";
+            fileOutput << double_heap->print();
         }
 
         if (type == "char")
@@ -92,9 +176,8 @@ int main()
                 }
             }
 
-            cout << char_heap->getHeapifyCount() << " ";
-
-            char_heap->print();
+            fileOutput << char_heap->getHeapifyCount() << " ";
+            fileOutput << char_heap->print();
         }
 
         if (type == "bool")
@@ -126,9 +209,9 @@ int main()
                 }
             }
 
-            cout << bool_heap->getHeapifyCount() << " ";
+            fileOutput << bool_heap->getHeapifyCount() << " ";
 
-            bool_heap->print();
+            fileOutput << bool_heap->print();
         }
     }
 }
