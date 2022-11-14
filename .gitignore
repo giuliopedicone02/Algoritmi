@@ -12,6 +12,7 @@
 !/Esercizi/heapsort
 !/Esercizi/reverse-heapsort
 !/Esercizi/ordinamento-lineare
+!/Esercizi/hash-chain-div
 
 # Escludi tutti i file eseguibili
 *exe
