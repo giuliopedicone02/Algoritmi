@@ -1,0 +1,33 @@
+Titolo
+Ordinamento di un insieme tramite CountingSort
+
+Introduzione
+Il CountingSort è un algoritmo di ordinamento non basato su confronti che permette di ordinare un vettore di valori interi, sotto determinate condizioni, in un tempo lineare rispetto alla dimensione del vettore. Lo schema di funzionamento è di immediata semplicità . Noto a priori il range di variabilità  K del vettore di interi, si costruisce un vettore ausiliario C di tale lunghezza che sia in grado di fornire, per ogni posizione, l'informazione circa il numero di elementi minori o uguali presenti all'interno del vettore di input. Se il range di variabilità  è proporzionale al numero di elementi presenti nel vettore di input allora l'ordinamento può essere realizzato in tempo lineare.
+
+Specifiche
+Si implementi l'algoritmo di ordinamento Counting e si fornisca il codice di un programma in grado di leggere da un file di input una sequenza di N valori di tipo H (dove H può essere int, double, bool o char) ed ordinare il vettore contenente gli elementi forniti in input tramite l'algoritmo proposto. Il programma dovrà  restituire in output anche la configurazione del vettore C ottenuta subito dopo l'ordinamento del vettore di input.
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da 2+N elementi. Il primo elemento è una stringa che identifica il tipo di dato (H) degli elementi contenuti nella sequenza di input da ordinare. Il secondo elemento è un valore intero N, il quale rappresenta il numero di elementi contenuti nel vettore di input. Seguono N valori che rappresentano, nell'ordine dato, gli elementi da ordinare.
+
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene K+N elementi, dove K rappresenta il range di variabilità  degli elementi presenti nel vettore di input. I primi K elementi rappresentano la configurazione dell'array C (di dimensione K) al termine della fase di ordinamento. Segue una sequenza di N valori i quali rappresentano gli elementi del vettore di input successivamente all'ordinamento, ovvero disposti in ordine non decrescente.
+
+Note
+N è un numero intero compreso tra 10 e 200.
+Il tipo H può essere uno dei seguenti tipi di dato: int, double, bool, char.
+
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+int 10 48 38 50 36 31 42 35 34 34 37 
+bool 10 0 1 1 1 0 0 0 0 0 0 
+double 10 2.5 1.9 1.2 1.7 1.4 1.6 3 2.1 2.1 1.6 
+
+output.txt
+0 1 1 1 3 4 5 6 7 7 7 7 8 8 8 8 8 8 9 9 31 34 34 35 36 37 38 42 48 50 
+0 7 0 0 0 0 0 0 0 1 1 1 
+0 1 1 2 2 4 5 5 6 6 8 8 8 8 9 9 9 9 9 1.2 1.4 1.6 1.6 1.7 1.9 2.1 2.1 2.5 3 
