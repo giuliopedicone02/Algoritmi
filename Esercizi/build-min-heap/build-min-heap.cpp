@@ -68,8 +68,7 @@ public:
     string print()
     {
         for (int i = 1; i < size; i++)
-            if (array[i])
-                s << array[i] << " ";
+            s << array[i] << " ";
         s << endl;
         return s.str();
     }
@@ -89,7 +88,7 @@ int main()
     string type = "";
     int dim = 0;
 
-    while (fileInput.good())
+    for (int conta = 0; conta < 100; conta++)
     {
         fileInput >> type >> dim;
 
