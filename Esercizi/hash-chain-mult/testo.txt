@@ -1,0 +1,32 @@
+Titolo
+Tabelle hash concatenate e metodo della moltiplicazione
+
+Introduzione
+Una tabella hash è una struttura dati di tipo array o matrice frastagliata, che consente di associare chiavi a valori attraverso una funzione, detta di hashing, che calcola a partire dalla chiave l'indice nella struttura dati associato alla chiave (codice hash), attraverso cui accedere alla chiave stessa. Le tabelle hash si differenziano per funzione hash e metodo di risoluzione delle collisioni. Le tabelle hash concatenate sfruttano una matrice frastagliata per risolvere le collisioni. Uno dei metodi per il calolo dei codici hash è il metodo della moltiplicazione.
+
+Specifiche
+Si implementi una tabella hash concatenata che impieghi il metodo della moltiplicazione per il calcolo dei codici hash con parametro c = 0.61803.
+
+Dati di input
+Il file di input è costituito da 100 task, uno per ogni riga. Ogni riga è costituita da 3 + N valori. Il primo valore è il tipo della chiave da inserire nella struttura dati (int, double, bool, char); il secondo valore M rappresenta il massimo numero di bucket della tabella hash da allocare. Il terzo è un valore N che indica il numero di chiavi da inserire. Seguono le N chiavi del tipo fornito. Ogni elemento è separato dal precedente da uno spazio.
+
+Dati di output
+Il file di output deve essere costituito da 100 righe, una per ogni task. Ogni riga deve contenere M valori, con M massimo numero di bucket nella struttura dati; l'i-esimo valore rappresenta il numero di elementi contenuti nell'i-esimo bucket.
+
+
+Note
+N è sempre un valore minore di 100.
+M è sempre un valore minore di 100.
+
+Esempio
+Di seguito si mostra un file di input costituito da 4 task e il relativo file di output.
+
+input.txt
+double 43 2 9.9 7.1
+char 27 15 e v c h h b r d z j h s f s z
+int 50 8 80 58 39 55 6 8 7 46
+
+output.txt:
+0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 3 0 0 1 0 0 3 0 0 2 1 1 1 0 1 0 0 0 0 0 1 0 0 0 1 0
+0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 0 0 0 1 0 1

@@ -13,6 +13,7 @@
 !/Esercizi/reverse-heapsort
 !/Esercizi/ordinamento-lineare
 !/Esercizi/hash-chain-div
+!/Esercizi/hash-chain-mult
 
 # Escludi tutti i file eseguibili
 *exe
