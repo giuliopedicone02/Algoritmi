@@ -9,6 +9,7 @@
 !/Esercizi/min-enqueue
 !/Esercizi/counting-sort
 !/Esercizi/heapify
+!/Esercizi/heapsort
 
 # Escludi tutti i file eseguibili
 *exe
