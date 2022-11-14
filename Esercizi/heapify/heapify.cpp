@@ -10,6 +10,7 @@ class MaxHeap
 private:
     H *array;
     int size;
+    int heapsize;
     int cont;
     int left(int i) { return i << 1; }
     int right(int i) { return (i << 1) | 1; }
@@ -28,16 +29,16 @@ private:
         int l = left(i);
         int r = right(i);
         int max = i;
-        if (l < size && array[l] > array[max])
+        if (l <= heapsize && array[l] > array[max])
             max = l;
-        if (r < size && array[r] > array[max])
+        if (r <= heapsize && array[r] > array[max])
             max = r;
         if (max != i)
         {
             swap(i, max);
             max_heapify(max);
         }
-        if (size >= 1)
+        if (heapsize >= 1)
             cont++;
     }
 
@@ -52,13 +53,14 @@ public:
         }
 
         size = len + 1;
+        heapsize = len;
         cont = 0;
         s.str("");
     }
 
     void build_heap()
     {
-        for (int i = floor(size / 2) - 1; i >= 1; i--)
+        for (int i = heapsize / 2; i > 0; i--)
         {
             max_heapify(i);
         }
@@ -66,8 +68,8 @@ public:
 
     void extract()
     {
-        swap(1, size);
-        size--;
+        swap(1, heapsize);
+        heapsize--;
         max_heapify(1);
     }
 
@@ -120,7 +122,7 @@ int main()
                 int_heap->extract();
             }
 
-            cout << int_heap->getHeapifyCount() << endl;
+            fileOutput << int_heap->getHeapifyCount() << endl;
             // int_heap->print();
         }
 
@@ -142,7 +144,7 @@ int main()
                 double_heap->extract();
             }
 
-            cout << double_heap->getHeapifyCount() << endl;
+            fileOutput << double_heap->getHeapifyCount() << endl;
             // double_heap->print();
         }
 
@@ -163,7 +165,7 @@ int main()
                 char_heap->extract();
             }
 
-            cout << char_heap->getHeapifyCount() << endl;
+            fileOutput << char_heap->getHeapifyCount() << endl;
 
             // char_heap->print();
         }
@@ -186,7 +188,7 @@ int main()
                 bool_heap->extract();
             }
 
-            cout << bool_heap->getHeapifyCount() << endl;
+            fileOutput << bool_heap->getHeapifyCount() << endl;
 
             // bool_heap->print();
         }
