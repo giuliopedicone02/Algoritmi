@@ -1,0 +1,33 @@
+Titolo
+Ordinamento inverso di un insieme tramite HeapSort
+
+Introduzione
+L'HeapSort è un algoritmo di ordinamento iterativo ed in-place proposto da Williams nel 1964, che si basa su strutture dati ausiliarie.
+L'HeapSort per eseguire l'ordinamento, utilizza una struttura chiamata Heap; un Heap è rappresentabile con un albero binario in cui tutti i nodi seguono una data proprietà , detta priorità . Esso è completo almeno fino al penultimo livello dell'albero (con le foglie sull'ultimo livello compattate a sinistra). In uno MinHeap (utilizzato per ordinare ad esempio un array in senso decrescente) ogni nodo padre contiene un valore minore o uguale a quello dei suoi due figli diretti, di conseguenza risulterà  minore anche di tutti i nodi che si trovano nel sottoalbero di cui esso è la radice. Quindi in ogni istante, in un MinHeap la radice contiene sempre il valore minore.
+
+Specifiche
+Si implementi l'algoritmo di ordinamento decrescente HeapSort e si fornisca il codice di un programma in grado di leggere da un file di input una sequenza di N elementi e ordinare il vettore contenente gli elementi di input tramite l'algoritmo proposto. Il programma dovrà  restituire in output anche il numero complessivo di chiamate alla procedura Heapify richieste durante l'ordinamento decrescente del vettore di input.
+
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da 2+N elementi. Il primo elemento è una stringa che identifica il tipo di dato (H) che dovrà  essere contenuto all'interno della coda con priorità . Il secondo elemento è un valore intero N, il quale rappresenta il numero di elementi contenuti nell'array di input. Seguono N valori che rappresentano, nell'ordine dato, gli elementi contenuti dell'array di input.
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene 1+N elementi. Il primo valore rappresenta il numero complessivo di chiamate alla procedura Heapify. Segue una sequenza di N valori i quali rappresentano gli elementi del vettore di input successivamente all'ordinamento, ovvero disposti in ordine non crescente.
+
+Note
+N è un numero intero compreso tra 10 e 200.
+Il tipo H può essere uno dei seguenti tipi di dato: int, double, bool, char.
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+char 10 b r l i r s r r o e 
+int 11 12 42 34 13 15 80 53 81 9 1 56 
+double 11 5.87 1.7 8.2 2.49 2.51 8.66 5.56 6.47 0.53 2.48 4.97 
+
+output.txt
+26 s r r r r o l i e b 
+35 81 80 56 53 42 34 15 13 12 9 1 
+38 8.66 8.2 6.47 5.87 5.56 4.97 2.51 2.49 2.48 1.7 0.53

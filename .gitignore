@@ -10,6 +10,7 @@
 !/Esercizi/counting-sort
 !/Esercizi/heapify
 !/Esercizi/heapsort
+!/Esercizi/reverse-heapsort
 
 # Escludi tutti i file eseguibili
 *exe
