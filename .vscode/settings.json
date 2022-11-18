@@ -1,6 +1,6 @@
 {
     "files.associations": {
-        "iostream": "cpp",
-        "cmath": "cpp"
+        "functional": "cpp",
+        "iostream": "cpp"
     }
 }

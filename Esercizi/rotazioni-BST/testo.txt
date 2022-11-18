@@ -1,0 +1,41 @@
+Titolo
+Rotazioni in un Albero Binario di Ricerca
+
+Introduzione
+Un Albero Binario di Ricerca (in inglese, BST, da Binary Search Tree) è una particolare tipologia di struttura dati che permette di effettuare in maniera efficiente operazioni come: ricerca, inserimento e cancellazione di elementi.
+Intuitivamente, un albero binario di ricerca rispetta la proprietà  in base alla quale il sottoalbero sinistro di un nodo x contiene soltanto i nodi con chiavi minori o uguali della chiave del nodo x; in modo simile il sottoalbero destro di un nodo x contiene soltanto i nodi con chiavi maggiori della chiave del nodo x.
+La rotazione di un nodo, in un albero binario di ricerca, è un'operazione che modifica la struttura dell'albero su cui viene effettuata, senza alterarne la proprietà  di ordinamento.
+
+
+Specifiche
+Si implementi una classe BST, attraverso l'utilizzo dei template, contenente elementi di tipo generico H. La classe dovrà  implementare la procedura di inserimento di un nuovo elemento, la procedura di cancellazione e due procedure che, presa in input una chiave, siano in grado di realizzare la rotazione destra e sinistra, rispettivamente, del un nodo dell'albero contenente quella determinata chiave. Nel caso in cui la chiave fornita in input non sia contenuta nell'albero o nel caso in cui la rotazione richiesta non sia realizzabile, la procedura implementata non dovrà  avere alcun effetto sulla struttura dell'albero.
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da 4+N+M elementi. Il primo elemento è una stringa che identifica il tipo di dato (H) che dovrà  essere contenuto all'interno della Coda. Il secondo elemento è un valore intero N, il quale rappresenta il numero delle operazioni di inserimento e cancellazione che dovranno essere effettuate nella struttura dati. Il terzo elemento è un valore intero M che rappresenta il numero di rotazioni richieste. il quarto elemento è una stringa che identifica l'ordine in cui gli elementi dovranno essere presentati in output ("inorder", "preorder" o "postorder").
+Seguono N stringhe che rappresentano, nell'ordine dato, le operazioni da svolgere all'interno dell'albero. Nello specifico un inserimento di un valore "v" viene identificato dalla stringa "ins:" seguita dal valore "v". In modo simile la cancellazione di un valore "v" viene identificato dall stringa "canc:" seguita dal valore "v".
+Segue una lista di M operazioni di rotazione. Nello specifico la rotazione sinistra del nodo contenente la chiave "v" viene identificata dalla stringa "left:" seguita dal valore "v". In modo simile la rotazione destra di un nodo contenente la chiave "v" viene identificata dall stringa "right:" seguita dal valore "v".
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene una lista di N valori, i quali rappresentano gli elementi contenuti nell'albero, nell'ordine indicato in input (inorder, preorder o postorder).
+
+
+Note
+N è un numero intero compreso tra 10 e 200.
+Il tipo H può essere uno dei seguenti tipi di dato: int e double.
+Gli elementi da inserire all'interno della struttura sono tutti elementi distinti.
+I primi 30 task di input contengono esclusivamente tipi di dato int.
+I primi 50 task di input propongono esclusivamente operazioni di inserimento.
+
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+int 10 2 postorder ins:130 ins:144 ins:23 ins:240 ins:192 ins:87 ins:127 ins:40 ins:3 ins:9 right:23 right:144 
+int 10 2 postorder ins:158 ins:297 ins:204 ins:131 ins:75 ins:98 ins:199 ins:212 ins:157 ins:208 right:208 right:131 
+int 10 2 preorder ins:180 ins:223 ins:160 ins:45 ins:225 ins:56 ins:297 ins:204 ins:150 ins:212 left:297 left:297 
+
+output.txt
+9 40 127 87 23 3 192 240 144 130 
+98 157 131 75 199 208 212 204 297 158 
+180 160 45 56 150 223 204 212 225 297 
