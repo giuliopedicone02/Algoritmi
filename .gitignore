@@ -16,6 +16,7 @@
 !/Esercizi/hash-chain-mult
 !/Esercizi/rotazioni-bst
 !/Esercizi/insert-RBTree
+!/Esercizi/altezza-RBTree
 
 # Escludi tutti i file eseguibili
 *exe

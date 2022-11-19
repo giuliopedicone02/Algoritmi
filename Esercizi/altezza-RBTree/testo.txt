@@ -1,0 +1,33 @@
+Titolo
+Altezza di un Albero Rosso-Nero
+
+Introduzione
+Un Albero Rosso-Nero è un albero binario di ricerca in cui ad ogni nodo è associato un colore il quale può essere rosso o nero. Inoltre è necessario che i nodi siano disposti in modo da soddisfare 5 semplici regole. Quando tali regole sono rispettate l'albero risulta essere bilanciato ed ogni operazione di inserimento, cancellazione o ricerca può essere svolta in tempo logaritmico, nel caso pessimo.
+
+Specifiche
+Si implementi una classe RBtree, attraverso l'utilizzo dei template, contenente elementi di tipo generico H. La classe dovrà  implementare la procedura di inserimento di un nuovo elemento e la procedura per il calcolo dell'altezza dell'albero.
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da 2+N elementi. Il primo elemento è una stringa che identifica il tipo di dato (H) che dovrà  essere contenuto all'interno dell'albero rosso-nero. Il secondo elemento è un valore intero N, il quale rappresenta l'insieme degli elementi che dovranno essere inseriti nella struttura dati. Seguono N valori che rappresentano, nell'ordine dato, gli elementi di tipo H che dovranno essere inseriti all'interno dell'albero.
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene un unico valore intero il quale rappresenta l'altezza dell'albero rosso-nero risultante alla fine delle N operazioni di inserimento.
+
+Note
+N è un numero intero compreso tra 10 e 200.
+Il tipo H può essere uno desi seguenti tipi di dato: int, double.
+Gli elementi presenti nella lista sono tutti distinti.
+I primi 30 task di input prevedono esclusivamente il tipo di dato int.
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+int 10 8 348 588 185 954 673 189 162 956 829 
+int 10 763 360 910 165 53 278 44 299 745 479 
+int 11 170 820 249 251 866 556 647 53 248 497 128 
+
+output.txt
+4 
+4 
+5 
