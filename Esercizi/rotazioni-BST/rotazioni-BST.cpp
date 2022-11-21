@@ -5,21 +5,6 @@ using namespace std;
 
 #include "BST.h"
 
-string print(int *arr, int dim)
-{
-    stringstream s;
-    s.str("");
-
-    for (int i = 0; i < dim; i++)
-    {
-        s << arr[i] << " ";
-    }
-
-    s << endl;
-
-    return s.str();
-}
-
 int main()
 {
     fstream fileInput("input.txt", fstream::in);
@@ -40,7 +25,7 @@ int main()
     int int_value = 0;
     double double_value = 0.0;
 
-    while (fileInput.good())
+    for (int x = 0; x < 100; x++)
     {
         fileInput >> type >> n >> m >> visit;
 
