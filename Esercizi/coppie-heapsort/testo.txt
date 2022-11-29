@@ -1,0 +1,36 @@
+Titolo
+Ordinamento di un insieme di coppie tramite HeapSort
+
+Introduzione
+L'HeapSort è un algoritmo di ordinamento iterativo ed in-place proposto da Williams nel 1964, che si basa su strutture dati ausiliarie.
+L'HeapSort per eseguire l'ordinamento, utilizza una struttura chiamata Heap; un Heap è rappresentabile con un albero binario in cui tutti i nodi seguono una data proprietà , detta priorità . Esso è completo almeno fino al penultimo livello dell'albero (con le foglie sull'ultimo livello compattate a sinistra). In uno MaxHeap (utilizzato per ordinare ad esempio un array in senso crescente) ogni nodo padre contiene un valore maggiore o uguale a quello dei suoi due figli diretti, di conseguenza risulterà  maggiore anche di tutti i nodi che si trovano nel sottoalbero di cui esso è la radice. Quindi in ogni istante, in un MaxHeap la radice contiene sempre il valore maggiore.
+
+
+Specifiche
+Si implementi l'algoritmo di ordinamento HeapSort e si fornisca il codice di un programma in grado di leggere da un file di input una sequenza di N elementi di coppie e ordinare il vettore contenente le coppie di input tramite l'algoritmo proposto. Il programma dovrà  restituire in output anche il numero complessivo di chiamate alla procedura Heapify richieste durante l'ordinamento del vettore di input.
+Ogni coppia è formata da una coppia di valori (x,y). Diciamo che una coppia A=(x,y) è minore di una coppia B=(z,w) se x è minore di z, oppure se x è uguale a z e y è minore di w. Diciamo che A=B se x=z e y=w.
+
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da 2+N elementi. Il primo elemento è una stringa che identifica il tipo di dato (H) degli elementi contenuti in ciascuna coppia. Il secondo elemento è un valore intero N, il quale rappresenta il numero di coppie contenute nell'array di input. Seguono N coppie che rappresentano, nell'ordine dato, gli elementi contenuti dell'array di input. Ogni coppia è racchiusa tra parentesi tonde, mentre gli elementi al suo interno sono divisi da una virgola (ad esempio "(3,7)").
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene 1+N elementi. Il primo valore rappresenta il numero complessivo di chiamate alla procedura Heapify. Segue una sequenza di N coppie le quali rappresentano gli elementi del vettore di input successivamente all'ordinamento, ovvero disposti in ordine non decrescente.
+
+Note
+N è un numero intero compreso tra 10 e 200.
+Il tipo H può essere uno dei seguenti tipi di dato: int, double, bool, char.
+ATTENZIONE! Il carattere ',' potrebbe essere sostituito da uno spazio.
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+bool 10 (1,1) (0,0) (0,0) (0,1) (1,0) (1,0) (0,1) (1,1) (1,0) (0,1) 
+int 10 (46,57) (5,43) (79,28) (72,89) (53,39) (78,56) (18,10) (20,20) (19,58) (74,12) 
+int 10 (46,66) (30,93) (41,52) (86,18) (93,53) (56,56) (24,40) (36,49) (50,35) (53,28)
+
+output.txt
+28 (0,0)  (0,0)  (0,1)  (0,1)  (0,1)  (1,0)  (1,0)  (1,0)  (1,1)  (1,1)  
+32 (5,43)  (18,10)  (19,58)  (20,20)  (46,57)  (53,39)  (72,89)  (74,12)  (78,56)  (79,28)  
+30 (24,40)  (30,93)  (36,49)  (41,52)  (46,66)  (50,35)  (53,28)  (56,56)  (86,18)  (93,53)  
