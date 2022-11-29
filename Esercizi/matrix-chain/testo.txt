@@ -1,0 +1,32 @@
+Titolo
+Ottimizzare la moltiplicazione di una sequenza di matrici
+
+Introduzione
+Per calcolare il prodotto matriciale di due matrici A e B, di dimensione (q x r) e (r x p), rispettivamente, sono necessari (q x r x p) prodotti scalari.
+Sia data una sequenza di N matrici A[i], per i = 1 ... N. Siano R[i] e C[i] il numero di righe ed il numero di colonne, rispettivamente, della matrice A[i]. Si supponga di voler calcolare il prodotto matriciale A[1] x A[2] x A[3] x ... x A[N]. Si individui una parentesizzazione ottimale della sequenza di matrici in modo che il prodotto matriciale possa essere calcolato effettuando il minor numero possibile di prodotti scalari.
+
+Specifiche
+Si fornisca il codice di un algoritmo, basato sulla programmazione dinamica, che, prese in input le dimensioni delle N matrici appartenenti alla sequenza, sia in grado di calcolare il minor numero possibile di prodotti scalari utili per il calcolo del prodotto matriciale.
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da N+2 elementi. Il primo elemento rappresenta il numero N delle matrici presenti nella sequenza, per cui calcolare il prodotto matriciale. Seguono N+1 valori interi D[i] per i=0 ... N, i quali rappresentano le dimensioni delle matrici della sequenza. Nello specifico la matrice A[i], per i=1 ... N, ha dimensione D[i-1] x D[i].
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene un unico valore intero il quale rappresenta il numero minimo di moltiplicazioni scalari necessarie per il calcolo del prodotto matriciale.
+
+Note
+N è sempre un valore intero compreso tra 5 e 1000.
+Le dimensioni delle matrici sono valori interi compresi tra 1 e 10.
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+5 (1x3) (3x4) (4x10) (10x10) (10x8) 
+5 (1x4) (4x10) (10x9) (9x7) (7x6) 
+6 (9x9) (9x4) (4x9) (9x2) (2x6) (6x4) 
+
+output.txt
+232
+235
+426
