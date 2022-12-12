@@ -22,5 +22,9 @@
 !/Esercizi/coppie-heapsort
 !/Esercizi/matrix-chain
 
+# NB: Esercizio attualmente non funzionante con coding contest ma solo con il file input di esempio
+
+!/Esercizi/briscola 
+
 # Escludi tutti i file eseguibili
 *exe

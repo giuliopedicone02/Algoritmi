@@ -1,0 +1,40 @@
+Titolo
+Le partite di briscola
+
+Introduzione
+Si supponga di possedere una tale bravura nel giovo della briscola da essere sicuri di vincere qualsiasi partita. Per poter far fruttare le proprie capacità  si vuole pianificare la partecipazione ad N partite di briscola previste nei successivi giorni. Tuttavia tale pianificazione non è così banale poiché alcune partite vengono giocate in momenti coincidenti mentre altre ha una tassa di partecipazione troppo elevata.
+Più precisamente si supponga che ogni partita di briscola, per i = 0 ... N-1, viene giocata nel giorno G[i], abbia inizio alle ore I[i] e termini alle ore F[i]. Inoltre si supponga che la tassa di partecipazione alla partita sia fissata nel valore T[i] e che la vincita prevista sia data dal valore V[i].
+Calcolare la somma massima che è possibile accumulare alla fine delle N partite se si dispone inizialmente di un budget pari ad M.
+
+Specifiche
+Si fornisca il codice di un algoritmo, basato sulla programmazione dinamica, che, preso in input l'insieme delle N partite di briscola, sia in grado di calcolare il guadagno massimo ottenuto in base ad una pianificazione ottimale delle partite a cui partecipare.
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da 5N+2 elementi. I primi due elementi rappresentano, rispettivamente, il numero N di partite e la cifra M inizialmente a disposizione. Segue una lista di N gruppi di 5 elementi, i quali contengono i dettagli relative alle N partite di briscola. Nello specifico il gruppo relativo alla partita i-esima contiene, nell'ordine, le informazioni G[i], I[i], F[i], T[i] e V[i].
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene un unico valore intero il quale rappresenta il guadagno massimo ottenuto mediante una pianificazione ottimale della partecipazione alle N partite di briscola.
+
+Note
+Tutti i valori forniti in input sono valori interi.
+N è sempre un valore compreso tra 4 e 1000.
+M è un valore compreso tra 0 e 100.
+G[i] è un valore compreso tra 0 e 100.
+I[i] ed F[i] sono dei valori compresi tra 0 e 24 con I[i]T[i] e V[i] sono dei valori compresi tra 0 e 100 con T[i] sempre minore o uguale a V[i].
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+4 7 0 17 24 30 52 0 14 18 9 49 0 12 15 37 40 0 1 2 12 15
+4 69 0 5 23 33 82 0 8 16 47 73 0 19 20 33 62 0 3 22 17 39
+7 53 1 17 22 12 23 0 1 14 25 60 0 11 16 17 56 0 3 7 1 23 0 14 19 5 44 1 15 17 19 49 1 15 19 13 15
+
+output.txt
+7
+124
+168
+
+Nel primo caso di esempio sono disponibili 4 partite. Tutte le partite di giocano in un unico giorno (il giorno 0). Il giocatore ha a disposizione inizialmente una somma pari a 7. Poiché tutte le partite prevedono una tassa di iscrizione maggiore di 7, non sarà  possibile partecipare a nessuna partita per cui la somma massima a disposizione del giocatore, dopo le 4 partite sarà  sempre pari a 7.
+
+Nel secondo caso di esempio il giocatore può partecipare a 4 partite, tutte previste nel medesimo giorno, avendo a disposizione una somma iniziale pari a 69. La pianificazione ottimale prevede la partecipazione alla seconda partita, giocata dalle 8 alle 16 (con un guadagno pari a 26), e alla terza partita, giocata dalle 19 alle 20 (con un guadagno pari a 29). La somma totale a disposizione del giocatore sarà  quindi pari a 69+26+29=124.
