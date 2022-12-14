@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include "partita.h"
 using namespace std;
 
 bool verificaOrari(int giorno1, int inizio1, int fine1, int giorno2, int inizio2, int fine2)
@@ -27,8 +28,9 @@ bool verificaFondi(int saldo, int tassa)
     return true;
 }
 
-int getPianficazioneMigliore(int cifra, int *giorno, int *inizio, int *fine, int *tassa, int *vincita, int dim)
+int getPianificazioneMigliore(int cifra, Partita **partita, int dim)
 {
+    int guadagno = 0;
     int saldo = cifra;
     int max = cifra;
     int lastGiorno = 0, lastInizio = 0, lastFine = 0;
@@ -37,31 +39,31 @@ int getPianficazioneMigliore(int cifra, int *giorno, int *inizio, int *fine, int
     {
         saldo = cifra;
 
-        if (verificaFondi(saldo, tassa[i])) // Ho abbastanza soldi per giocare
+        if (partita[i]->verificaFondi(saldo)) // Ho abbastanza soldi per giocare
         {
-            saldo = saldo + (vincita[i] - tassa[i]); // aggiorno il saldo
+            guadagno = partita[i]->getGuadagno(); // Guadagno della partita attuale
 
             /* CALCOLO DELLA CONFIGURAZIONE OTTIMALE*/
 
-            lastGiorno = giorno[i];
-            lastInizio = inizio[i];
-            lastFine = fine[i];
+            Partita lastPartita = *partita[i];
 
             for (int j = 0; j < dim; j++)
             {
                 // Se gli orari delle due partite (i != j) sono compatibili....
-                if (i != j && verificaOrari(lastGiorno, lastInizio, lastFine, giorno[j], inizio[j], fine[j]))
+                if (i != j && verificaOrari(lastPartita, *partita[j]))
                 {
-                    saldo = saldo + (vincita[j] - tassa[j]); // Aggiorno il saldo
+                    guadagno += partita[j]->getGuadagno(); // Aggiorno guadagno ogni volta che posso giocare una partita
+                    // cout << "Guadagno: " << guadagno << endl;
+                    //  Aggiorno i dati con l'ultima partita giocata per il confronto successivo
 
-                    lastGiorno = giorno[j];
-                    lastInizio = inizio[j];
-                    lastFine = fine[j];
+                    lastPartita = *partita[j];
                 }
             }
         }
 
-        // cout << "Saldo al ciclo " << i << ": " << saldo << " - guadagno: " << (vincita[i] - tassa[i]) << endl;
+        saldo += guadagno; // Aggiorno il saldo
+
+        // cout << "Saldo al ciclo " << i << ": " << saldo << " - guadagno: " << partita[i]->getGuadagno() << endl;
 
         if (saldo > max)
         {
@@ -71,6 +73,7 @@ int getPianficazioneMigliore(int cifra, int *giorno, int *inizio, int *fine, int
 
     return max;
 }
+
 int main()
 {
     fstream fileInput("input.txt", fstream::in);
@@ -87,21 +90,26 @@ int main()
     {
         fileInput >> numero_partite >> cifra_a_disposizione;
 
-        int giorno[numero_partite]{0}, inizio[numero_partite]{0}, fine[numero_partite]{0};
-        int tassa[numero_partite]{0}, vincita[numero_partite]{0};
+        Partita **partite = new Partita *[numero_partite];
+
+        int giorno = 0, inizio = 0, fine = 0;
+        int tassa = 0, vincita = 0;
 
         for (int i = 0; i < numero_partite; i++)
         {
-            fileInput >> giorno[i] >> inizio[i] >> fine[i] >> tassa[i] >> vincita[i];
+            fileInput >> giorno >> inizio >> fine >> tassa >> vincita;
+            partite[i] = new Partita(giorno, inizio, fine, tassa, vincita);
         }
+
+        // Stampa le partite
 
         /*for (int i = 0; i < numero_partite; i++)
         {
-            cout << giorno[i] << " " << inizio[i] << " " << fine[i] << " " << tassa[i] << " " << vincita[i] << endl;
+            cout << *partite[i];
         }*/
 
         // cout << getPianficazioneMigliore(cifra_a_disposizione, giorno, inizio, fine, tassa, vincita, numero_partite) << endl;
 
-        fileOutput << getPianficazioneMigliore(cifra_a_disposizione, giorno, inizio, fine, tassa, vincita, numero_partite) << endl;
+        fileOutput << getPianificazioneMigliore(cifra_a_disposizione, partite, numero_partite) << endl;
     }
 }
