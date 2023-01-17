@@ -1,0 +1,32 @@
+Titolo
+La massima sottosequenza comune
+
+Introduzione
+Data una stringa X, una sua sottosequenza è una successione di caratteri di X, non necessariamente consecutivi, che appaiono nello stesso ordine in cui appaiono in X.
+Il problema della massima sottosequenza comune (in inglese LCS, longest common subsequence) consiste nel trovare la più lunga sottosequenza comune a tutte le stringhe in un insieme di stringhe (solitamente due). Questo problema, classico tra i problemi informatici, trova notevoli applicazioni in bioinformatica.
+
+Specifiche
+Si fornisca il codice di un algoritmo, basato sulla programmazione dinamica, che sia in grado di calcolare la più lunga sottosequenza in comune tra due stringhe, X e Y, di lunghezza, rispettivamente, N ed M.
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da 4 elementi. I primi due elementi rappresentano le lunghezze N ed M delle stringhe X e Y, rispettivamente. Seguono le due stringhe X e Y.
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene un unico valore intero il quale rappresenta la massima sottosequenza in comune tra X e Y.
+
+Note
+N ed M sono numeri interi compresi tra 5 e 1000.
+X e Y sono tutte stringhe definite sull'alfabeto formato dai quattro caratteri (a,c,g,t)
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+7 9 cggaagt cacagtttc
+5 7 tccca ctgatcg
+7 7 gctctct acaccat
+
+output.txt
+5
+2
+4
