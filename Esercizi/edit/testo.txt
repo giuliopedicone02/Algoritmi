@@ -1,0 +1,40 @@
+Titolo
+La distanza di edit
+
+Introduzione
+Date due stringhe X e Y, la loro distanza di Levenshtein (chiamata anche distanza di edit) è utilizzata per misurare la differenza fra le due stringhe. Tale distanza è stata introdotta nel 195 dallo scienziato russo Vladimir Levenshtein e serve a determinare quanto due stringhe siano simili. Viene applicata per esempio per semplici algoritmi di controllo ortografico e per fare ricerca di similarità  tra immagini, suoni, testi, etc.
+Formalmente la distanza di Levenshtein tra due stringhe X e Y è il numero minimo di modifiche elementari che consentono di trasformare la stringa X nella stringa Y. Per modifica elementare si intende: la cancellazione di un carattere in X, la sostituzione di un carattere di X con un altro carattere a scelta, o l'inserimento di un carattere in una qualsiasi posizione di X.
+
+Specifiche
+Si fornisca il codice di un algoritmo, basato sulla programmazione dinamica, che sia in grado di calcolare la distanza di edit tra due stringhe, X e Y, di lunghezza, rispettivamente, N ed M.
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da 4 elementi. I primi due elementi rappresentano le lunghezze N ed M delle stringhe X e Y, rispettivamente. Seguono le due stringhe X e Y.
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene un unico valore intero il quale rappresenta la distanza di edit tra X e Y.
+
+Note
+N ed M sono numeri interi compresi tra 5 e 1000.
+X e Y sono tutte stringhe definite sull'alfabeto formato dai quattro caratteri (a,c,g,t)
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+7 9 cggaagt cacagtttc
+5 7 tccca ctgatcg
+7 7 gctctct acaccat
+
+output.txt
+6
+5
+4
+
+Nel primo esempio la sequenza minima di operazioni che serve per trasformare X in Y è la seguente (si supponga sia 0 l'indice del primo carattere della stringa):
+1. sostituire il carattere di posizione 1 con il carattere a --> cagaagt
+2. sostituire il carattere di posizione 2 con il carattere c --> cacaagt
+3. cancellare il carattere di posizione 4 --> cacagt
+4. inserire il carattere t alla fine della stringa --> cacagtt
+5. inserire il carattere t alla fine della stringa --> cacagttt
+6. inserire il carattere c alla fine della stringa --> cacagtttc
