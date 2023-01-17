@@ -1,0 +1,32 @@
+Titolo
+Il problema del resto
+
+Introduzione
+Il problema del resto è un problema ben noto e può essere formulato come segue. Si supponga di avere un insieme di N monete di diverso taglio T[i], per i compreso tra 1 ed N. Si deve restituire un resto esatto pari al valore R utilizzando il numero minimo di monete. Si supponga di disporre di un numero illimitato di monete per ogni taglio disponibile.
+
+Specifiche
+Si fornisca il codice di un algoritmo, basato sulla programmazione dinamica, che, presi in input l'insieme dei diversi tagli di monete disponibili, sia in grado di restituire la dimensione dell'insieme minimo di monete necessario per restituire un resto di valore esatto pari ad R.
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da N+2 elementi. I primi due elementi rappresentano, rispettivamente, il resto R da restituire ed il numero N di tagli disponibili. Segue la lista degli N tagli di monete disponibili. I valori dei tagli non sono forniti in ordine crescente.
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene un unico valore intero il quale rappresenta il numero minimo di monete necessarie per restituire un resto esatto pari ad R.
+
+Note
+R è sempre un valore intero compreso tra 5 e 1000.
+N è sempre un valore intero compreso tra 5 e 1000.
+I tagli delle monete sono tutti valori interi distinti e compresi tra 5 e 1000.
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+42 5 7 3 8 1 4 
+25 5 8 2 4 9 1 
+38 6 9 4 12 10 5 2 
+
+output.txt
+6
+3
+4
