@@ -1,0 +1,33 @@
+Titolo
+L'algortimo di Dijkstra
+
+Introduzione
+L'algoritmo di Dijkstra è un algoritmo utilizzato per calcolare i cammini minimi in un grafo con pesi non negativi sugli archi. Fu pubblicato nel 1959 dall'informatico olandese Edsger Dijkstra e trova applicazione in molteplici contesti quale l'ottimizzazione nella realizzazione di reti (idriche, telecomunicazioni, stradali, circuitali, ecc.) o l'organizzazione e la valutazione di percorsi runtime nel campo della robotica.
+
+Specifiche
+Si implementi la classe Grafo supponendo che gli archi siano direzionati e che i nodi contengano chiavi di tipo generico. In seguito, si fornisca l'implementazione dell'algoritmo di Dijkstra in grado di calcolare il peso dei cammini minimi da una data sorgente verso tutti i nodi del grafo.
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da N+M+5 elementi. I primi due elementi sono dei valori numerici interi, N ed M, i quali rappresentano il numero di nodi ed il numero di archi presenti nel grafo. Segue una stringa di testo che identifica il tipo di dato (int o double) che dovrà  essere contenuto all'interno dei nodi del Grafo. Segue la sequenza delle chiavi relative agli N nodi, in ordine sparso, e la sequenza degli M archi del grafo (in ordine sparso). Ogni arco è rappresentato da tre elementi (le chiavi dei nodi sorgente e destinazione, nell'ordine, e il peso dell'arco) separati da una virgola e racchiusi tra parentesi. Gli ultimi due elementi sono la chiave del nodo sorgente e quella del nodo destinazione per i quali si vuole calcolare il cammino minimo.
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene un unico valore intero il quale rappresenta la distanza di cammino minimo tra il nodo sorgente e in nodo destinazione. Nel caso in cui non esista alcun cammino tra i nodi indicati dovrà  essere stampata la stringa "inf.".
+
+Note
+N è sempre un valore inferiore a 100.
+il peso degli archi è sempre minore o uguale a 100.
+Gli archi hanno tutti un peso non negativo.
+ATTENZIONE! Il carattere ',' potrebbe essere sostituito da uno spazio.
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+5 11 int 33 48 50 72 34 (33,72,20) (33,34,36) (48,33,53) (48,50,56) (48,34,9) (50,48,93) (50,72,74) (50,34,98) (72,48,52) (72,34,28) (34,50,5) 48 72
+5 11 int 54 91 88 58 63 (54,91,24) (54,88,43) (54,63,99) (91,88,26) (88,54,56) (88,91,69) (88,58,65) (88,63,13) (58,63,67) (63,91,42) (63,58,89) 58 54
+5 9 int 72 19 57 55 56 (72,19,24) (72,55,80) (19,57,74) (57,72,18) (57,19,25) (57,56,89) (55,19,25) (56,57,49) (56,55,29) 56 19
+
+output.txt
+73
+191
+54
