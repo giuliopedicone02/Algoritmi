@@ -1,0 +1,35 @@
+Titolo
+Ordinamento di un insieme di terne tramite HeapSort
+
+Introduzione
+L'HeapSort è un algoritmo di ordinamento iterativo ed in-place proposto da Williams nel 1964, che si basa su strutture dati ausiliarie.
+L'HeapSort per eseguire l'ordinamento, utilizza una struttura chiamata Heap; un Heap è rappresentabile con un albero binario in cui tutti i nodi seguono una data proprietà , detta priorità . Esso è completo almeno fino al penultimo livello dell'albero (con le foglie sull'ultimo livello compattate a sinistra). In uno MaxHeap (utilizzato per ordinare ad esempio un array in senso crescente) ogni nodo padre contiene un valore maggiore o uguale a quello dei suoi due figli diretti, di conseguenza risulterà  maggiore anche di tutti i nodi che si trovano nel sottoalbero di cui esso è la radice. Quindi in ogni istante, in un MaxHeap la radice contiene sempre il valore maggiore.
+
+
+Specifiche
+Si implementi l'algoritmo di ordinamento HeapSort e si fornisca il codice di un programma in grado di leggere da un file di input una sequenza di N elementi di terne e ordinare il vettore contenente le terne di input tramite l'algoritmo proposto. Il programma dovrà  restituire in output anche il numero complessivo di chiamate alla procedura Heapify richieste durante l'ordinamento del vettore di input.
+Ogni terna è formata da tre valori (x,y). Diciamo che una terna A=(x,y,z) è minore di una terna B=(i,j,k) se x è minore di i; oppure se x è uguale a i e y è minore di j; oppure se x è uguale a i, y è uguale a j e z è minore di k. Diciamo che A=B se x=i, y=j e z=k.
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da 2+N elementi. Il primo elemento è una stringa che identifica il tipo di dato (H) degli elementi contenuti in ciascuna terna. Il secondo elemento è un valore intero N, il quale rappresenta il numero di terne contenute nell'array di input. Seguono N terne che rappresentano, nell'ordine dato, gli elementi contenuti dell'array di input. Ogni terna è racchiusa tra parentesi tonde, mentre gli elementi al suo interno sono divisi da una virgola (ad esempio "(3,7,2)").
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene 1+N elementi. Il primo valore rappresenta il numero complessivo di chiamate alla procedura Heapify. Segue una sequenza di N terne le quali rappresentano gli elementi del vettore di input successivamente all'ordinamento, ovvero disposti in ordine non decrescente.
+
+Note
+N è un numero intero compreso tra 10 e 200.
+Il tipo H può essere uno dei seguenti tipi di dato: int, double, bool, char.
+ATTENZIONE! Il carattere ',' potrebbe essere sostituito da uno spazio.
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+bool 10 (1,1,0) (0,0,0) (0,1,1) (0,1,0) (0,1,1) (1,1,0) (0,1,1) (1,1,0) (1,1,0) (0,1,1) 
+double 10 (6.9,2.99,1.17) (2.17,9.2,1.55) (9.46,1.66,0.11) (7.95,8.48,7.75) (0.12,9.93,0.12) (8.87,4.21,4.82) (6.84,1.02,8.36) (8.93,9.56,4.2) (9.58,8.28,9.94) (0.95,3.95,2.06) 
+int 10 (9,99,74) (19,64,97) (80,14,98) (26,17,16) (59,69,46) (6,57,25) (89,28,5) (21,96,7) (63,46,88) (94,81,42) 
+
+output.txt
+31 (0,0,0)  (0,1,0)  (0,1,1)  (0,1,1)  (0,1,1)  (0,1,1)  (1,1,0)  (1,1,0)  (1,1,0)  (1,1,0)  
+33 (0.12,9.93,0.12)  (0.95,3.95,2.06)  (2.17,9.2,1.55)  (6.84,1.02,8.36)  (6.9,2.99,1.17)  (7.95,8.48,7.75)  (8.87,4.21,4.82)  (8.93,9.56,4.2)  (9.46,1.66,0.11)  (9.58,8.28,9.94)  
+36 (6,57,25)  (9,99,74)  (19,64,97)  (21,96,7)  (26,17,16)  (59,69,46)  (63,46,88)  (80,14,98)  (89,28,5)  (94,81,42) 
