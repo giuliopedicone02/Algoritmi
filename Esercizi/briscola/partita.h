@@ -17,6 +17,7 @@ public:
     Partita(int giorno, int inizio, int fine, int tassa, int vincita) : giorno(giorno), inizio(inizio), fine(fine), tassa(tassa), vincita(vincita){};
 
     friend bool verificaOrari(Partita, Partita);
+    friend int ultimaPartita(Partita **, int);
     friend int getPianificazioneMigliore(int, Partita **, int);
     friend void getPartiteGiocabili(Partita **&, int &, int);
     friend int *getNumeroPartiteGiornaliere(Partita **, int);
@@ -68,28 +69,15 @@ bool verificaOrari(Partita p1, Partita p2)
     return false;
 }
 
-int *getNumeroPartiteGiornaliere(Partita **partita, int dim)
+int ultimaPartita(Partita **partita, int i)
 {
-    int dim2 = partita[dim - 1]->giorno;
-    int arr[dim2];
-    int cont = 0;
-
-    for (int i = 0; i < dim2; i++)
+    int k = i;
+    for (int j = i - 1; j >= 0; j--)
     {
-        cont = 0;
-
-        for (int j = 0; j < dim; j++)
-        {
-            if (partita[i]->giorno == i)
-            {
-                cont++;
-            }
-        }
-
-        arr[i] = cont;
+        if (verificaOrari(*partita[j], *partita[k]))
+            return j;
     }
-
-    return arr;
+    return -1;
 }
 
 void getPartiteGiocabili(Partita **&partita, int &dim, int cifra)
@@ -147,18 +135,14 @@ bool operator<(Partita p1, Partita p2)
 
 bool operator>(Partita p1, Partita p2)
 {
+
     if (p1.giorno > p2.giorno) // La partita p1 inizia un giorno successivo alla partita p2
     {
         return true;
     }
     else if (p1.giorno == p2.giorno)
     {
-        if (p1.inizio > p2.fine) // La partita p1 inizia dopo la fine della partita p2
-        {
-            return true;
-        }
-
-        if (p1.inizio > p2.inizio)
+        if (p1.fine > p2.fine)
         {
             return true;
         }

@@ -5,46 +5,35 @@ using namespace std;
 
 int getPianificazioneMigliore(int cifra, Partita **partita, int dim)
 {
-    int guadagno = 0;
-    int max = cifra;
+    int guadagno[dim];
+    guadagno[0] = partita[0]->getGuadagno();
 
-    for (int i = 0; i < dim; i++)
+    for (int i = 1; i < dim; i++)
     {
-        /*if (partita[i]->verificaFondi(saldo)) // Ho abbastanza soldi per giocare
-        {*/
-        guadagno = partita[i]->getGuadagno(); // Guadagno della partita attuale
+        int aux = partita[i]->getGuadagno();
+        int last = ultimaPartita(partita, i);
 
-        /* CALCOLO DELLA CONFIGURAZIONE OTTIMALE*/
-
-        Partita lastPartita = *partita[i];
-
-        for (int j = 0; j < dim; j++)
+        if (last != -1)
         {
-            // Se gli orari delle due partite (i != j) sono compatibili....
-            if (i != j && verificaOrari(lastPartita, *partita[j]))
-            {
-                guadagno += partita[j]->getGuadagno(); // Aggiorno guadagno ogni volta che posso giocare una partita
-
-                // Aggiorno i dati con l'ultima partita giocata per il confronto successivo
-                lastPartita = *partita[j];
-            }
+            aux += guadagno[last];
         }
-        /*}*/
 
-        guadagno += cifra; // Aggiorno il guadagno aggiungendo la cifra a disposizione
-
-        if (guadagno > max)
+        if (aux > guadagno[i - 1])
         {
-            max = guadagno;
+            guadagno[i] = aux;
+        }
+        else
+        {
+            guadagno[i] = guadagno[i - 1];
         }
     }
 
-    return max;
+    return guadagno[dim - 1] + cifra;
 }
 
 int main()
 {
-    fstream fileInput("input2.txt", fstream::in);
+    fstream fileInput("input.txt", fstream::in);
     fstream fileOutput("output.txt", fstream::out);
 
     if (!fileInput.is_open())
@@ -54,7 +43,7 @@ int main()
 
     int numero_partite = 0, cifra_a_disposizione = 0;
 
-    for (int x = 0; x < 5; x++)
+    for (int x = 0; x < 100; x++)
     {
         fileInput >> numero_partite >> cifra_a_disposizione;
 
@@ -80,14 +69,12 @@ int main()
             sort(partite, numero_partite);
 
             // Stampa le partite
-
+            /*
             for (int i = 0; i < numero_partite; i++)
             {
                 cout << *partite[i];
             }
-
-            cout << endl
-                 << endl;
+*/
 
             fileOutput << getPianificazioneMigliore(cifra_a_disposizione, partite, numero_partite) << endl;
         }
