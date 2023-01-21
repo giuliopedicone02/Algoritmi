@@ -1,0 +1,33 @@
+Titolo
+Selezione di attività 
+
+Introduzione
+Si supponga di avere un insieme S di N attività  che devono utilizzare la medesima risorsa, per esempio un'aula universitaria o un campo da tennis. Ogni attività  è definita da un tempo di inizio ed un tempo di fine che definisce il loro intervallo di svolgimento. Si supponga che un'attività  possa iniziare nel momento stesso in cui un'altra attività  finisce. Due attività  si dicono compatibili se i loro intervalli di svolgimento non si intersecano.
+Supponendo che sia previsto un costo per l'utilizzo della risorsa nell'unità  di tempo, si selezioni il sottoinsieme delle attività  che massimizzi il guadagno, ovvero il sottoinsieme di attività  che impegni la risorsa per il più lungo tempo possibile.
+
+Specifiche
+Si fornisca il codice di un algoritmo, basato sulla programmazione dinamica, che, preso in input l'insieme delle attività  che devono utilizzare la risorsa, sia in grado di fornire la composizione del sottoinsieme di attività  compatibili in grado di massimizzare la somma dei tempi di utilizzo della risorsa. Nel caso siano disponibili più sottoinsiemi di attività  compatibili in grado di ottenere il risultato ottimo, si prediliga la soluzione in cui le attività  che terminano dopo hanno un tempo di fine visita maggiore.
+
+Dati di input
+L'input è suddiviso in 100 task, uno per ogni riga. Ogni riga del file di input è formata da N+1 elementi. Il primo elemento rappresenta il numero N delle attività  che devono utilizzare la risorsa. Segue la lista degli N intervalli di tempo che contraddistinguono le N attività  della lista. Ogni intervallo di tempo è identificato da una coppia di valori interi, x e y, divisi da una virgola e racchiusi tra parentesi, dove x rappresenta il tempo di inizio attività  e y rappresenta il tempo di fine attività . Ad esempio (4,9) rappresenta un'attività  che inizia alle ore 4 e termina alle ore 9. Gli intervalli di tempo sono forniti in ordine sparso.
+
+Dati di output
+L'output dovrà  essere formato da 100 righe, una per ogni task. Ogni riga contiene un solo elemento, il costo della soluzione ottima, ovvero il tempo massimo in cui la risorsa può essere impegnata.
+
+Note
+I tempi di inizio e fine di ogni intervallo sono sempre dei valori interi compresi tra 5 e 1000.
+N è sempre un valore intero compreso tra 5 e 1000.
+ATTENZIONE! Il carattere ',' potrebbe essere sostituito da uno spazio.
+
+Esempio
+Il seguente esempio presenta un file di input, contenente 3 task, ed il corrispondente file di output.
+
+input.txt:
+10 (4,6) (5,6) (8,9) (8,10) (1,2) (8,9) (8,10) (2,4) (7,9) (6,8) 
+10 (0,1) (6,9) (8,10) (7,10) (5,8) (8,10) (1,3) (0,2) (1,4) (1,2) 
+10 (6,9) (5,7) (5,6) (7,8) (4,7) (0,3) (6,9) (7,8) (2,3) (3,4) 
+
+output.txt
+9
+9
+8 
