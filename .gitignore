@@ -31,10 +31,11 @@
 !/Esercizi/greedy-knapsack
 !/Esercizi/greedy-activity
 !/Esercizi/activity
+
+# NB: Esercizio funzionante solo con i 3 file input di prova
 !/Esercizi/briscola funzionante
 
-# NB: Esercizio attualmente non funzionante con coding contest ma solo con il file input di esempio
-
+# NB: Esercizio attualmente non funzionante al 100%
 !/Esercizi/briscola 
 
 # Escludi tutti i file eseguibili

@@ -20,7 +20,6 @@ public:
     friend int ultimaPartita(Partita **, int);
     friend int getPianificazioneMigliore(int, Partita **, int);
     friend void getPartiteGiocabili(Partita **&, int &, int);
-    friend int *getNumeroPartiteGiornaliere(Partita **, int);
     friend void sort(Partita **, int dim);
 
     ostream &put(ostream &os)

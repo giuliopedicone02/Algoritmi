@@ -1,3 +1,7 @@
+/**
+ * ATTENZIONE: QUESTO ESERCIZIO NON PRODUCE UN OUTPUT CORRETTO AL 100%
+ */
+
 #include <iostream>
 #include <fstream>
 #include "partita.h"
@@ -69,12 +73,11 @@ int main()
             sort(partite, numero_partite);
 
             // Stampa le partite
-            /*
+
             for (int i = 0; i < numero_partite; i++)
             {
                 cout << *partite[i];
             }
-*/
 
             fileOutput << getPianificazioneMigliore(cifra_a_disposizione, partite, numero_partite) << endl;
         }

@@ -1,3 +1,7 @@
+/**
+ * ATTENZIONE: QUESTO ESERCIZIO FUNZIONA SOLO CON I 3 DATI INPUT DI ESEMPIO
+ */
+
 #include <iostream>
 #include <fstream>
 #include "partita.h"
