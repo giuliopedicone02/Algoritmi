@@ -103,13 +103,13 @@ Identico all'inserimento di un BST con l'unica aggiunta di imporre l'inserimento
     void Tree_insert(T, z) 
     {
         y = NULL;
-        x = T.root; //T.root indica la radice dell'albero T
+        x = T.root;                         // T.root indica la radice dell'albero T
         while(x != NULL) {
-            y = x;  //y è l'ultimo nodo visitato
+            y = x;                          // y è l'ultimo nodo visitato
             if(z.key <= x.key) x = x.left;
             else x = x.right;
         }
-        z.p = y; //z.p indica il padre del nodo z
+        z.p = y;                            // z.p indica il padre del nodo z
         if(y == NULL) T.root = z;
         else if(z.key <= y.key) y.left = z;
         else y.right = z;
@@ -183,4 +183,64 @@ Soluzioni:
 
     T.root.color = BLACK; //Per assicurarci che la proprietà 2 sia rispettata coloriamo di nero la radice
   }
+```
+
+## Funzione Trapianta: O(1)
+
+Questa funzione verrà utilizzata durante la procedura di eliminazione di un nodo dell'albero rosso-nero, il primo parametro (u) è il nodo da eliminare, il secondo (v) è la radice del sottoalbero che sostituirà u.
+
+```c
+    RB-Transplant(T,u,v)
+    {
+        if u.p == NULL      //Se il nodo u è la radice, imposta v come nuova radice dell'albero
+            T.root = v
+        else u == u.p.left  //Se il nodo u è figlio sinistro, imposta v come nuovo figlio sinistro
+            u.p.left = v
+        else
+            u.p.right = v   //Altrimenti imposta v come nuovo figlio destro
+        
+        v.p = u.p           // Il parent di v è uguale al parent di u
+    }
+```
+
+## Funzione Delete: O(log n)
+
+Questa funzione elimina il nodo z dall'albero e si distingue in tre casi:
+
+1. Il nodo z ha solo un figlio destro
+2. Il nodo z ha solo un figlio sinistro
+3. Il nodo z ha entrambi i figli
+
+Il nodo x è un nodo ausiliario che ci tornerà utile quando richiameremo la funzione RB-DELETE-FIXUP()
+Il nodo y è un nodo ausiliario che tiene traccia delle possibili violazioni alle regole dell'albero rosso nero.
+
+```c
+  RB-DELETE(T, z)
+    y = z 
+    y.original-color = y.color
+
+    if z.left == NULL                       // CASO 1 - Il nodo z ha solo un figlio destro
+        x = z.right 
+        RB-Transplant(T, z, z.right)
+    else if z.right == NULL                 // CASO 2 - Il nodo z ha solo un figlio sinistro
+        x = z.left
+        RB-Transplant(T, z, z.left)
+    else                                    // CASO 3 - Il nodo z ha entrambi i figli
+        y = TREE-MINIMUM(z.right)           // Cerco il minimo del sottoalbero destro e lo memorizzo in y
+        y.original-color = y.color
+        x = y.right
+
+        if y.p == z                         // Se il padre di y è z, impostiamo il parent di x come y
+            x.p = y
+        else RB-Transplant(T, y, y.right)   // Altrimenti eliminiamo y e lo sostituiamo con il suo figlio destro
+            y.right = z.right               // Il figlio destro di y è uguale al figlio destro di z
+            y.right.p = y                   // Il parent del figlio destro di y sarà y
+        
+        RB-Transplant(T, z, y)              // Eliminiamo il nodo z e lo sostituiamo con y
+        y.left = z.left                     // Il figlio sinistro di y sarà uguale al figlio sinistro di z
+        y.left.p = y                        // Il parent del figlio sinistro di y sarò y
+        y.color = z.color                   // y eredita il colore di z
+
+    if y.original-color == BLACK            // Se il colore originale di y era nero, si verifica la condizione del doppionero
+        RB-DELETE-FIXUP(T, x)               // Richiamiamo quindi RB-DELETE-FIXUP(T,x) per ripristinare le 5 regole dell'RB-TREE
 ```
