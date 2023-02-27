@@ -244,3 +244,51 @@ Il nodo y è un nodo ausiliario che tiene traccia delle possibili violazioni all
     if y.original-color == BLACK            // Se il colore originale di y era nero, si verifica la condizione del doppionero
         RB-DELETE-FIXUP(T, x)               // Richiamiamo quindi RB-DELETE-FIXUP(T,x) per ripristinare le 5 regole dell'RB-TREE
 ```
+
+## Funzione Delete-Fixup: O(log n)
+
+Questa funzione ripristina le proprietà dell'albero rosso nero dopo aver eliminato un nodo nero, si distingue in quattro casi:
+
+Il nodo w è un nodo ausiliario che indica il "fratello" del nodo x da eliminare
+
+1. Il nodo w è rosso
+2. Il nodo w è nero ed entrambi i figli di w sono neri
+3. Il nodo w è nero, il figlio sinistro di w è rosso ed il figlio destro di w è nero
+4. Il nodo w è nero ed il figlio destro di w è rosso
+
+```c
+  RB-DELETE-FIXUP(T, x)
+    while x != T.root and x.color == BLACK                          // Fin quando x non è la radice oppure x non è rosso esegui
+        if x == x.p.left                                            // Se x è figlio sinistro...
+            w = x.p.right                                           // Impostiamo w come fratello di x
+
+            if w.color == RED                                       // CASO 1 - NODO W ROSSO
+                w.color = BLACK                                     // Coloriamo w di nero
+                x.p.color = RED                                     // Coloriamo il parent di x rosso
+                LEFT-ROTATE(T,x.p)                                  // Ruotiamo a sinistra il parent di x
+                w = x.p.right                                       // Ripristiniamo w come fratello di x
+
+            if w.left.color == BLACK and w.right.color == BLACK     // CASO 2 - ENTRAMBI I FIGLI DI W SONO NERI
+                w.color = RED                                       // Coloriamo w di rosso (x doppio nero e w nero cedono un nero ciascuno diventando quindi rispettivamente nero e rosso)
+                x = x.p                                             // x diventa il suo parent e ripetiamo la procedura al prossimo ciclo while
+
+            else if w.right.color == BLACK                          // CASO 3 - FIGLIO DESTRO DI W NERO
+                w.left.color = BLACK                                // Swappiamo i colori di w ed il suo figlio sinistro
+                w.color = RED
+                RIGHT-ROTATE(T,w)                                   // Ruotiamo w a destra
+                w = x.p.right                                       // Ripristiniamo w come fratello di x
+
+                                                                    // CASO 4 - FIGLIO DESTRO DI W ROSSO
+            w.color = x.p.color                                     // Il nodo w prende il colore del suo parent
+            x.p.color = BLACK                                       // Il parent di x viene colorato di nero
+            w.right.color = BLACK                                   // Il figlio destro di w viene colorato di nero
+            LEFT-ROTATE(T,x.p)                                      // Ruotiamo a sinistra il parent di x
+            x = T.root                                              // Imponiamo x come root per uscire dal while
+        else (procedura simmetrica alla precedente scambiando right e left)
+    
+    x.color = BLACK                                                 // Nel caso di doppio nero della radice, la ricoloriamo semplicemente di nero
+```
+
+<p align="center">
+  <img src="https://i.stack.imgur.com/OrLhF.png">
+</p>
