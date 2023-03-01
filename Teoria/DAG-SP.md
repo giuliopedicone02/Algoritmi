@@ -1,7 +1,7 @@
 # Directed Acyclic Graph Shortest Path
 
 <p align="center">
-  <img src="https://media.geeksforgeeks.org/wp-content/uploads/shortestpathstart.jpg">
+  <img src="https://www.researchgate.net/publication/282135528/figure/fig8/AS:280570845253642@1443904710348/The-schematic-procedure-of-the-shortest-path-algorithm-for-a-DAG-other-related.png">
 </p>
 
 
@@ -33,6 +33,10 @@ function DAG-SP(G, S, w)
 
 **Ordinamento topologico di un grafo:**
 
+<p align="center">
+  <img src="https://media.geeksforgeeks.org/wp-content/uploads/shortestpathstart.jpg">
+</p>
+
 I nodi di un grafo si definiscono ordinati topologicamente se i nodi sono disposti in modo tale che ogni nodo viene prima di tutti i nodi collegati ai suoi archi uscenti.
 
 ∃ arco tra v ed u tale che u<v
@@ -41,7 +45,7 @@ I nodi di un grafo si definiscono ordinati topologicamente se i nodi sono dispos
 
 
 <p align="center">
-  <img src="https://www.researchgate.net/publication/334027256/figure/fig2/AS:773861096296448@1561514271440/Depth-First-Search-progress-251-Depth-First-Search-Algorithm-1-If-the-initial-state-is.ppm">
+  <img src="https://he-s3.s3.amazonaws.com/media/uploads/9fa1119.jpg">
 </p>
 
 **Complessità:** O(V+E) oppure O(V^2)
